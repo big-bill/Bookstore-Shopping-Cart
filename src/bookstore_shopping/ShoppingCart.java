@@ -232,12 +232,12 @@ public class ShoppingCart extends JFrame {
 			// In case there are no selected items, we do nothing and return without removing an element
 			if(bookIndex.length == 0) return;
 			
-			// Step through the bookIndex array and remove the selected titles
+			// Step through the bookIndex array backwards and remove the selected titles
 			for(int i = bookIndex.length; i > 0; --i) {
 				try {
 					int temp = i - 1;
 					// We split the String in half, which will contain the book title and cost
-					String[] bookTitleTemp = listModel.get(temp).split("[-]");
+					String[] bookTitleTemp = listModel.get(bookIndex[temp]).split("[-]");
 					String bookTitle = bookTitleTemp[0].trim();
 					// We get the book cost with the key provided (which is the book title) and subtract it from the subtotal
 					subtotal -= books.get(bookTitle);
